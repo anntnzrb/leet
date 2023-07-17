@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-pub fn top_k_frequent_v1(nums: Vec<i32>, k: i32) -> Vec<i32> {
+pub fn top_k_frequent(nums: Vec<i32>, k: i32) -> Vec<i32> {
     let mut map: HashMap<i32, i32> = HashMap::new();
     nums.iter().for_each(|n| {
         *map.entry(*n).or_insert(0) += 1;
@@ -22,9 +22,9 @@ mod tests {
 
     #[test]
     fn v1() {
-        let mut xs = top_k_frequent_v1(vec![1, 1, 1, 2, 2, 3], 2);
-        let mut ys = top_k_frequent_v1(vec![1], 1);
-        let mut zs = top_k_frequent_v1(vec![1, 2], 2);
+        let mut xs = top_k_frequent(vec![1, 1, 1, 2, 2, 3], 2);
+        let mut ys = top_k_frequent(vec![1], 1);
+        let mut zs = top_k_frequent(vec![1, 2], 2);
 
         xs.sort();
         ys.sort();
